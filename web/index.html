@@ -1,0 +1,234 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary Meta Tags -->
+  <title>A poop journey</title>
+  <meta name="title" content="A poop journey">
+  <meta name="description" content="Come along for a story of tracking my poop over 1 year">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://sniel.id.au/poops">
+  <meta property="og:title" content="A poop journey">
+  <meta property="og:description" content="Come along for a story of tracking my poop over 1 year">
+  <meta property="og:image" content="http://sniel.id.au/poops/images/poop.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://sniel.id.au/poops">
+  <meta property="twitter:title" content="A poop journey">
+  <meta property="twitter:description" content="Come along for a story of tracking my poop over 1 year">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" 
+integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuAD
+WwKB4C2WSw==" 
+crossorigin="anonymous"></script-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rough.js/2.1.1/rough.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-rough@latest/dist/chartjs-plugin-rough.min.js">
+  </script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie+Flower">
+
+</head>
+
+<style>
+  body,
+  h1,
+  h2 {
+    font-family: "Indie Flower", 'cursive';
+  }
+
+  p {
+    font-size: medium;
+    text-align: justify;
+  }
+
+  .chart-container {
+    /*position: relative;*/
+    height: 400px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+</style>
+
+<body style="max-width:800px;margin:auto;">
+
+  <div class="w3-container">
+    <h1>Poopy poops</h1>
+    <p>Pooping is an activity that we all engage in. It is the process by which we expel
+      solid waste material as a byproduct of our daily food consumption. For some,
+      like me, it can be a euphoric moment. But for others, it can be painful. There
+      are many poop tracking apps in the wild that allow you understand your pooping
+      characteristics. I have been using one of these for a year now, so let me take
+      you on a poop journey.</p>
+  </div>
+
+  <div class="w3-container">
+    <h1>The data</h1>
+    <p>I have been tracking my poops since <strong id='start_date'></strong>.
+      The data below was captured until <strong id='end_date'></strong>, and is
+      thus from <strong id='n_days'></strong>, <strong id='n_months'></strong>, or
+      <strong id='n_years'></strong>.
+    </p>
+    <p>I have pooped <strong id='n_poops'></strong> times in this period. Impressive!</p>
+  </div>
+
+  <div class="w3-container">
+    <h2>Poops per day</h2>
+    <p>I generally poop about <strong id='likely_n_poop'></strong> per day.
+      My poop rate is <strong id='poop_rate'></strong>.</p>
+
+    <div class="w3-container w3-card chart-container">
+      <canvas id="plot-daily"></canvas>
+    </div>
+  </div>
+
+  <div class="w3-container">
+    <h2>The pooping hour</h2>
+    <p>I like to poop around <strong id='likely_poop_time'></strong> hours, and most often
+      between <strong id='often_poop_time'></strong> hours.</p>
+
+    <div class="w3-container w3-card chart-container">
+      <canvas id="plot-hourly"></canvas>
+    </div>
+
+  </div>
+
+  <div class="w3-container">
+    <h2>Size and shape</h2>
+
+    <p>The poop quantities that I poop are a little hard to measure.
+      I do this through sensation, so the quantities are probably not that accurate.
+      I most often sense that I poop of <strong id='often_poop_size'></strong> quantities.</p>
+
+    <div class="w3-container w3-card chart-container">
+      <canvas id="plot-quantity"></canvas>
+    </div>
+
+    <p>The Bristol Stool Chart categorizes poops into 7 types. My poop is
+      usually a shaped like a <strong id='often_poop_type'></strong>.</p>
+
+    <div class="w3-container w3-card chart-container">
+      <canvas id="plot-type"></canvas>
+    </div>
+
+  </div>
+
+  <div class="w3-container">
+    <h2>Places de poop</h2>
+    <p>I generally poop at <strong id='often_poop_place'></strong>, but also poop regularly at work.</p>
+
+    <div class="w3-container w3-card chart-container">
+      <canvas id="plot-place"></canvas>
+    </div>
+
+  </div>
+
+  <div class="w3-container">
+    <h2>Moving onwards</h2>
+    <p>That concludes my poop journey. I hope you had a pleasant trip.
+      I’d like to leave you with some thought provoking questions:</p>
+    <ul>
+      <li>How many poops do you do a day?</li>
+      <li>What time do you normally poop?</li>
+      <li>What are the characteristic size and shape of your poop?</li>
+      <li>Where is your favourite place to poop?</li>
+    </ul>
+
+  </div>
+
+  <script>
+    Chart.defaults.global.defaultFontFamily = '"Indie Flower", cursive';
+    Chart.defaults.global.defaultFontSize = '24';
+
+    let ppp
+
+    window.onload = function () {
+
+      fetch('./data/poop_data.json')
+        .then(response => response.json())
+        .then(data => {
+
+          /* Insert values into text */
+
+          for (x of [
+            'start_date', 'end_date', 'n_days',
+            'n_months', 'n_years', 'n_poops',
+            'likely_n_poop', 'poop_rate',
+            'likely_poop_time', 'often_poop_time',
+            'often_poop_size', 'often_poop_type',
+            'often_poop_place'
+          ]) {
+            document.querySelector('#' + x).innerText = data[x];
+          }
+
+          /* Plot data arrays */
+          let windowWidth = window.innerWidth;
+          let labelFontSize;
+          if (windowWidth < 600) {
+            labelFontSize = 18
+          } else {
+            labelFontSize = 24
+          }
+
+          let daily = data.daily
+          let hourly = data.hourly
+          let size = data.size
+          let type1 = data.type
+          let place = data.place
+
+          cjs(id = 'plot-daily', data = daily, x = 'poops', y = 'prob', type = 'bar',
+            axisFontSizex = 24, axisFontSizey = 24,
+            labelFontSizex = labelFontSizer(), labelFontSizey = labelFontSizer(),
+            labelx = 'Number of poops', labely = 'Probability (%)',
+            borderWidth = 2)
+
+          cjs(id = 'plot-hourly', data = hourly, x = 'hour', y = 'prob', type = 'bar',
+            axisFontSizex = 16, axisFontSizey = 14,
+            labelFontSizex = labelFontSizer(), labelFontSizey = labelFontSizer(),
+            labelx = 'Hour of day', labely = 'Probability (%)',
+            borderWidth = 1)
+
+          cjs(id = 'plot-quantity', data = size, x = 'quantity', y = 'prob', type = 'horizontalBar',
+            axisFontSizex = 16, axisFontSizey = 14,
+            labelFontSizex = labelFontSizer(), labelFontSizey = labelFontSizer(),
+            labelx = 'Probability (%)', labely = undefined)
+
+          cjs(id = 'plot-type', data = type1, x = 'type', y = 'prob', type = 'horizontalBar',
+            axisFontSizex = 16, axisFontSizey = 14,
+            labelFontSizex = labelFontSizer(), labelFontSizey = labelFontSizer(),
+            labelx = 'Probability (%)', labely = undefined)
+
+          cjs(id = 'plot-place', data = place, x = 'place', y = 'prob', type = 'bar',
+            axisFontSizex = 16, axisFontSizey = 14,
+            labelFontSizex = labelFontSizer(), labelFontSizey = labelFontSizer(),
+            labelx = undefined, labely = 'Probability (%)')
+
+
+        })
+
+
+    }
+
+  </script>
+
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/cjs.js"></script>
+
+</body>
+
+</html>
