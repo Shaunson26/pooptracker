@@ -1,0 +1,21 @@
+body,
+h1,
+h2 {
+  font-family: "Indie Flower", 'cursive';
+}
+
+body {
+    max-width:800px;
+    margin:auto;
+}
+
+p {
+  font-size: medium;
+  text-align: justify;
+}
+
+.chart-container {
+  height: 400px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}

@@ -1,6 +1,11 @@
 # Poop tracker to webpage
 
-This repo hold code to take data from the [Poop Tracker app by Appstronaut Studios](https://play.google.com/store/apps/details?id=com.appstronautstudios.pooplog&hl=en_AU&gl=US), generate some data summaries using R, and then have those values plug into a single static webpage with various [chartJS](https://www.chartjs.org/) graphics.
+This repo hold code to take data from the [Poop Tracker app by Appstronaut Studios](https://play.google.com/store/apps/details?id=com.appstronautstudios.pooplog&hl=en_AU&gl=US), generate some data summaries using R, and then have those values plug into a single static webpage with various [chartJS](https://www.chartjs.org/) graphics.  
+
+
+## Live example
+
+My own data is hosted on <a href="http://sniel.id.au/poops" target="_blank">sniel.id.au</a>. 
 
 ## Data collection and export
 
@@ -36,9 +41,9 @@ It uses:
   3. The [chartJS](https://www.chartjs.org/) JavaScript library with the [rough plugin](https://github.com/nagix/chartjs-plugin-rough) for that
   hand-drawn look
   4. "Indie Flower" cursive font from [fonts.google](https://fonts.google.com/specimen/Indie+Flower)
-  5. 'Custom JavaScript' code for plugging in values from the data analysis
+  5. Custom javascript code (`poops.js`) for plugging in values from the data analysis
   
-`./web/index.html` acts as a template with placeholders for values and plots. The 'Custom JavaScript' code takes the `./web/data/poop_data.json` and inserts the values into the placeholders.
+`./web/index.html` acts as a template with placeholders for values and plots. The `poops.js` takes the `./web/data/poop_data.json` and inserts the values into the placeholders, as well as generates the plots.
 
 The final version looks something like this:
 
