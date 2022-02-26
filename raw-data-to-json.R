@@ -1,6 +1,8 @@
-# Raw poop tracker csv data wrangling and output to JSON for webpage
-#
-#
+#' Raw poop tracker csv data wrangling and output to JSON for webpage
+#'
+#' Load a few functions
+#' Import data
+#' Create json
 
 library(tidyverse)
 
@@ -53,7 +55,9 @@ get_often_values <- function(x, var, threshold_prob, format_hour = F){
 
 
 # data ---
-poops <- readr::read_csv('raw-data/export_20210414.csv')
+file_in <- rev(list.files('raw-data/', full.names = T))[1]
+
+poops <- readr::read_csv(file_in)
 
 # * n ----
 min_date_english <- english_date(min(poops$date))
@@ -73,8 +77,6 @@ n_years <-
   round(n_days / 365.25, digits = 2)
 
 n_poops <- nrow(poops)
-
-
 
 # * plot data ----
 # ** Poops per day
