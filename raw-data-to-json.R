@@ -59,6 +59,14 @@ file_in <- rev(list.files('raw-data/', full.names = T))[1]
 
 poops <- readr::read_csv(file_in)
 
+# Spanish move - 14/03/2022  10:10:00 AM
+poops <-
+  poops %>% 
+  dplyr::mutate(date = dplyr::case_when(
+    date <= '2022-03-13 00:00:00' ~ date + lubridate::hours(8),
+    .default = date
+  ))
+
 # * n ----
 min_date_english <- english_date(min(poops$date))
 max_date_english <- english_date(max(poops$date))
@@ -102,7 +110,7 @@ likely_n_poop <-
          '2' = 'twice',
          '3' = 'three or more times')
 
-poop_rate <- round(n_poops / n_days, 1)
+poop_rate <- round(n_poops / n_days, 2)
 
 # ** Poops per hour
 hourly <-
