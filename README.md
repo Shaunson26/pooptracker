@@ -5,7 +5,7 @@ This repo hold code to take data from the [Poop Tracker app by Appstronaut Studi
 
 ## Live example
 
-My own data is hosted on <a href="http://sniel.id.au/poops" target="_blank">sniel.id.au</a>. 
+My own data is hosted on <a href="https://shaunnielsen.com/poops" target="_blank">sniel.id.au</a>. 
 
 ## Data collection and export
 
