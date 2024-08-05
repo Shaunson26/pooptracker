@@ -1,6 +1,6 @@
 # Poop tracker to webpage
 
-This repo hold code to take data from the [Poop Tracker app by Appstronaut Studios](https://play.google.com/store/apps/details?id=com.appstronautstudios.pooplog&hl=en_AU&gl=US), generate some data summaries using R, and then have those values plug into a single static webpage with various [chartJS](https://www.chartjs.org/) graphics.  
+This repo holds code to take data from the [Poop Tracker app by Appstronaut Studios](https://play.google.com/store/apps/details?id=com.appstronautstudios.pooplog&hl=en_AU&gl=US), generate some data summaries using R, and then have those values plug into a single static webpage with various [chartJS](https://www.chartjs.org/) graphics.  
 
 
 ## Live example
