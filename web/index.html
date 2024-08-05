@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Poopy poops</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,14 +14,14 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://sniel.id.au/poops">
+  <meta property="og:url" content="https://shaunnielsen.com/poops">
   <meta property="og:title" content="A poop journey">
   <meta property="og:description" content="Come along for a story of tracking my poop over 1 year">
-  <meta property="og:image" content="http://sniel.id.au/poops/images/poop.jpg">
+  <meta property="og:image" content="https://shaunnielsen.com/poops/images/poop.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="http://sniel.id.au/poops">
+  <meta property="twitter:url" content="https://shaunnielsen.com/poops">
   <meta property="twitter:title" content="A poop journey">
   <meta property="twitter:description" content="Come along for a story of tracking my poop over 1 year">
 
@@ -41,17 +41,19 @@
 
 <body>
 
-  <div class="w3-container">
+  <div class="w3-container w3-section">
     <h1>Poopy poops</h1>
     <p>Pooping is an activity that we all engage in. It is the process by which we expel
       solid waste material as a byproduct of our daily food consumption. For some,
       like me, it can be a euphoric moment. But for others, it can be painful. There
       are many poop tracking apps in the wild that allow you understand your pooping
-      characteristics. I have been using one of these for a year now, so let me take
-      you on a poop journey.</p>
+      characteristics.</p>
+      
+      <p>I used an app - <a href="https://play.google.com/store/apps/details?id=com.appstronautstudios.pooplog" target="_blank">Poop Tracker app by Appstronaut Studios</a>) 
+         - to track my habits for over 3 years. Below is the summarised data, so let me take you on my poop journey!</p>
   </div>
 
-  <div class="w3-container">
+  <div class="w3-container w3-section">
     <h1>The data</h1>
     <p>I have been tracking my poops since <strong id='start_date'></strong>.
       The data below was captured until <strong id='end_date'></strong>, and is
@@ -61,20 +63,21 @@
     <p>I have pooped <strong id='n_poops'></strong> times in this period. Impressive!</p>
   </div>
 
-  <div class="w3-container">
+  <div class="w3-container w3-section">
     <h2>Poops per day</h2>
     <p>I generally poop about <strong id='likely_n_poop'></strong> per day.
-      My poop rate is <strong id='poop_rate'></strong>.</p>
+      My poop rate is <strong id='poop_rate'></strong>. This is considered normal in popular media(<a href="https://www.healthline.com/health/how-many-times-should-you-poop-a-day">see here</a>).</p>
 
     <div class="w3-container w3-card chart-container">
       <canvas id="plot-daily"></canvas>
     </div>
   </div>
 
-  <div class="w3-container">
+  <div class="w3-container w3-section">
     <h2>The pooping hour</h2>
     <p>I like to poop around <strong id='likely_poop_time'></strong> hours, and most often
-      between <strong id='often_poop_time'></strong> hours.</p>
+      between <strong id='often_poop_time'></strong> hours. Being regular is considered healthy, and while there is no "best"
+    time to poop, the our bodies seem primed to poop in the morning after sleep (<a href="https://www.eatingwell.com/the-best-time-of-the-day-to-poop-8642393">see here</a>).</p>
 
     <div class="w3-container w3-card chart-container">
       <canvas id="plot-hourly"></canvas>
@@ -82,13 +85,16 @@
 
   </div>
 
-  <div class="w3-container">
+  <div class="w3-container w3-section">
     <h2>Size and shape</h2>
+
+    <p> As long as we are not pooping pellets or thin poops, we should be good 
+      (<a href="https://www.healthpartners.com/blog/healthy-poop-chart/">see here</a>).</p>
 
     <p>The poop quantities that I poop are a little hard to measure.
       I do this through sensation, so the quantities are probably not that accurate.
       I most often sense that I poop of <strong id='often_poop_size'></strong> quantities.</p>
-
+   
     <div class="w3-container w3-card chart-container">
       <canvas id="plot-quantity"></canvas>
     </div>
@@ -102,9 +108,9 @@
 
   </div>
 
-  <div class="w3-container">
+  <div class="w3-container w3-section">
     <h2>Places de poop</h2>
-    <p>I generally poop at <strong id='often_poop_place'></strong>, but also poop regularly at work.</p>
+    <p>I generally poop at <strong id='often_poop_place'></strong>, but also poop regularly at work or at a family members place.</p>
 
     <div class="w3-container w3-card chart-container">
       <canvas id="plot-place"></canvas>
@@ -112,7 +118,7 @@
 
   </div>
 
-  <div class="w3-container">
+  <div class="w3-container w3-section">
     <h2>Moving onwards</h2>
     <p>That concludes my poop journey. I hope you had a pleasant trip.
       I’d like to leave you with some thought provoking questions:</p>
@@ -125,6 +131,13 @@
 
   </div>
 
+  <footer>
+    <div class="w3-container w3-section footer">
+      <span>All data was collected and analysed by me.</span>
+      <span><a href="https://github.com/Shaunson26/pooptracker">the analysis info in my GitHub repository</a></span>
+    </div>
+  </footer>
+
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
@@ -134,6 +147,8 @@
       poopsOnLoad();
     };
   </script>
+
+
 
 
 </body>

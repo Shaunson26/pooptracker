@@ -9,9 +9,14 @@ body {
     margin:auto;
 }
 
-p {
-  font-size: medium;
+p,li {
+  font-size: 20px;
   text-align: justify;
+}
+
+.footer > span {
+  text-align: center;
+  display: block;
 }
 
 .chart-container {
@@ -19,3 +24,8 @@ p {
   padding-top: 16px;
   padding-bottom: 16px;
 }
+
+a:hover {
+  font-weight: bold;
+}
+
